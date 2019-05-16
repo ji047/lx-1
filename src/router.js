@@ -30,6 +30,21 @@ export default new Router({
             path: '/glStep',
             name: 'glStep',
             component: () => import( './views/glStep/glStep.vue')
+        },
+        {
+            path: '/glSearchResult',
+            name: 'glSearchResult',
+            component: () => import( './views/glSearchResult/glSearchResult.vue')
+        },
+        {
+            path: '/glList',
+            name: 'glList',
+            component: () => import( './views/glList/glList.vue')
+        },
+        {
+            path: '/glListDetail',
+            name: 'glListDetail',
+            component: () => import( './views/glListDetail/glListDetail.vue')
         }
     ]
 })

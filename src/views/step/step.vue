@@ -3,7 +3,7 @@
         <go-back :title="title1"></go-back>
         <p class="biaoti">业务办理信息</p>
         <p class="biaoti2">今年离校环节总共有 15个环节</p>
-        <p class="biaoti2">目前未办理环节 <span style="color: red;">10</span>，目前已办理环节 <span style="color: blue;">5</span></p>
+        <p class="biaoti2">目前未办理环节 <span class="color1">10</span>，目前已办理环节 <span class="color2">5</span></p>
         <div class="pad20">
             <van-swipe :autoplay="3000" indicator-color="white" class="lbt">
                 <van-swipe-item>

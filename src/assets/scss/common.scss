@@ -208,4 +208,53 @@ body {
   box-shadow: 0px 0px 20px 0px rgba(62, 107, 103, 0.16);
   border-radius: 4px;
   padding: 15px 20px;
+  color: white;
+}
+
+.color1 {
+  color: #06BEBD;
+}
+
+.color2 {
+  color: #FA2A00;
+}
+
+.radio-title {
+  padding: 14px 6px;
+  text-align: left;
+}
+
+.radio-border-bottom {
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.radio-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.radio-inline > div {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.colorTheme {
+  color: #0CBFBE;
+}
+
+.result {
+  .list-item {
+    @include flex(space-between, center);
+    border-bottom: 1px solid #E5E5E5;
+    padding: 16px 0;
+  }
+
+  .list-item-left {
+    width: calc(100% - 16px);
+  }
+
+  .list-item-left > div {
+    @include flex(space-between, center);
+    margin-top: 10px;
+  }
 }
