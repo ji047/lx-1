@@ -1,18 +1,18 @@
 const target='http://192.168.0.110:8085';
 module.exports = {
   // 基本路径
-  baseUrl: './',
+  publicPath: './',
   // 输出文件目录
   outputDir: 'docs',
-  // css:{
-  //   loaderOptions:{
-  //     sass:{
-  //       data:`@import "@/assets/scss/all.scss";`
-  //     }
-  //   }
-  // },
+  css:{
+    loaderOptions:{
+      sass:{
+        data:`@import "@/assets/scss/index.scss";`
+      }
+    }
+  },
   devServer:{
-    port:88,
+    port:8888,
     disableHostCheck: true,
     proxy:{
       '/proxy':{

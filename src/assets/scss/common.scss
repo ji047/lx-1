@@ -1,0 +1,211 @@
+html {
+}
+
+body {
+  padding-top: 45px;
+}
+
+.goback-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 23px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
+}
+
+.pad20 {
+  padding: 20px;
+}
+
+.biaoti {
+  font-size: 16px;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(49, 58, 68, 1);
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+.name-band {
+  background: linear-gradient(360deg, #06BEDD, #30DDDC);
+  padding: 20px;
+  box-shadow: 0px 0px 40px 0px rgba(6, 190, 203, 0.2);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  & > img {
+    width: 58px;
+    height: 58px;
+  }
+
+  & > div img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+
+  & > div > div {
+    margin-bottom: 6px;
+  }
+
+  & > div > div:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list {
+  margin-bottom: 30px;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6px;
+    border-bottom: 1px solid #E5E5E5;
+
+    .left-span {
+      font-size: 14px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(92, 105, 121, 1);
+    }
+
+    .right-span {
+      font-size: 14px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(50, 59, 69, 1);
+    }
+  }
+}
+
+.my-button {
+  padding: 25px 20px;
+  background: linear-gradient(360deg, #06BEDD, #30DDDC);
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 0px 0px 20px 0px rgba(62, 107, 103, 0.16);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  @include flex(space-between, center)
+}
+
+/*
+离校须知
+ */
+.biaoti1 {
+  font-size: 24px;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(49, 58, 68, 1);
+  text-align: left;
+}
+
+.iread {
+  font-size: 12px;
+  text-align: left;
+}
+
+.text-lxxz {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 40px 0px rgba(62, 107, 103, 0.16);
+  border-radius: 4px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.button-bg {
+  background: linear-gradient(360deg, #06BEDD, #30DDDC);
+  color: #ffffff !important;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+
+/*
+离校环节
+ */
+.lbt {
+}
+
+.lbt-item {
+  border-radius: 14px;
+  color: #ffffff;
+  text-align: left;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 300px;
+  margin: 0 10px;
+
+  .lbt-item-title {
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
+    margin-bottom: 20px;
+  }
+
+  .lbt-item-body {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    margin-bottom: 8px;
+
+    i {
+      margin-left: 10px;
+    }
+  }
+}
+
+.lbt-1 {
+  background: linear-gradient(135deg, rgba(255, 161, 97, 1) 0%, rgba(254, 138, 93, 1) 100%);
+}
+
+.lbt-2 {
+  background: linear-gradient(360deg, rgba(6, 190, 221, 1) 0%, rgba(48, 221, 220, 1) 100%);
+}
+
+.lbt-3 {
+  background: linear-gradient(135deg, rgba(255, 161, 97, 1) 0%, rgba(254, 138, 93, 1) 100%);
+}
+
+.biaoti2 {
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(50, 59, 69, 1);
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.picker-position {
+  position: fixed !important;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.picker-click-div {
+  background: linear-gradient(360deg, rgba(6, 190, 221, 1) 0%, rgba(48, 221, 220, 1) 100%) rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 20px 0px rgba(62, 107, 103, 0.16);
+  border-radius: 4px;
+  padding: 15px 20px;
+}

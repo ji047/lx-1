@@ -1,0 +1,16 @@
+//flex布局 参数：横轴，纵轴
+@mixin flex($main:flex-start,$cross:center) {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: $main;
+  align-items: $cross;
+}
+
+//多行文本省略号 参数：行数
+@mixin ellipsis($row) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $row;
+  -webkit-box-orient: vertical;
+}
