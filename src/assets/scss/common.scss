@@ -22,9 +22,9 @@ body {
 }
 
 .biaoti {
-  font-size: 16px;
+  font-size: 22px;
   font-family: PingFangSC-Medium;
-  font-weight: 500;
+  font-weight: 900;
   color: rgba(49, 58, 68, 1);
   text-align: left;
   padding-left: 20px;
@@ -138,6 +138,8 @@ body {
   font-family: PingFangSC-Regular;
   font-weight: 400;
   margin-top: 20px;
+  border: none;
+  outline: none;
 }
 
 
@@ -175,7 +177,7 @@ body {
 }
 
 .lbt-1 {
-  background: linear-gradient(135deg, rgba(255, 161, 97, 1) 0%, rgba(254, 138, 93, 1) 100%);
+  background: linear-gradient(360deg, rgba(255, 161, 97, 1) 0%, rgba(254, 138, 93, 1) 100%);
 }
 
 .lbt-2 {
@@ -183,13 +185,13 @@ body {
 }
 
 .lbt-3 {
-  background: linear-gradient(135deg, rgba(255, 161, 97, 1) 0%, rgba(254, 138, 93, 1) 100%);
+  background: linear-gradient(360deg, #6991c7 0%, #a3bded 100%);
 }
 
 .biaoti2 {
-  font-size: 14px;
+  font-size: 16px;
   font-family: PingFangSC-Regular;
-  font-weight: 400;
+  font-weight: 600;
   color: rgba(50, 59, 69, 1);
   text-align: left;
   padding-left: 20px;
@@ -257,4 +259,19 @@ body {
     @include flex(space-between, center);
     margin-top: 10px;
   }
+}
+
+
+/*
+覆盖element-ui样式
+ */
+.el-select {
+  width: 80%;
+}
+
+.el-select .el-input.is-focus .el-input__inner{
+  border-color: #06bedd !important;
+}
+.el-select-dropdown__item.selected{
+  color: #06bedd !important;
 }

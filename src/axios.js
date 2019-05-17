@@ -3,6 +3,7 @@ import axios from 'axios';
 import qs from 'querystring'
 import router from "./router";
 import store from './store';
+
 //创建实例 axios.create([config])
 const instance = axios.create({
     // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
@@ -16,20 +17,16 @@ const instance = axios.create({
     // `withCredentials` 表示跨域请求时是否需要使用凭证
     withCredentials: true,
 });
-let loading;
 //请求拦截器
 instance.interceptors.request.use(
     config => {
         //在发送请求之前做些什么
-        if (config.method === "post") {
-            // post传参序列化
-            config.data = qs.stringify(config.data);
-            // 注：若是提交能直接接受json 格式,即可以不用 qs 序列化
+        if (config.method === "post") {// post传参序列化
+            config.data = qs.stringify(config.data);// 注：若是提交能直接接受json 格式,即可以不用 qs 序列化
         }
         // 判断是否存在token，如果存在将每个页面header都添加token
         if (store.getters.token !== '') {
-            // config.headers.Authorization= "Bearer "+store.getters.token;
-            config.headers.Authorization = "Bearer " + "213213";
+            config.headers.Authorization = "Bearer " + store.getters.token;
         }
         return config;
     },
@@ -43,6 +40,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     res => {
         return res
+        Vue.prototype.$loading;
         // loading.close();
         if (res.data.errcode !== '0') {//非正常
             Vue.prototype.$toast(res.data.errmsg)
@@ -69,6 +67,7 @@ instance.interceptors.response.use(
         //             router.push('/error')
         //     }
         // }
+        Vue.prototype.$toast(err)
         return Promise.reject(err)
     });
 export default instance;

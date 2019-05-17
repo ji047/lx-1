@@ -5,18 +5,18 @@
         <div class="pad20">
             <div class="name-band">
                 <div>
-                    <div class="name"><span>张三</span> <img src="@/assets/img/male.png" alt="暂无图片"></div>
-                    <div>126737213123</div>
-                    <div>汉族</div>
+                    <div class="name"><span>{{student.xm}}</span> <img src="@/assets/img/male.png" alt="暂无图片"></div>
+                    <div>{{student.xh}}</div>
+                    <div>{{student.mz}}</div>
                 </div>
                 <img src="@/assets/img/default-user.png" alt="暂无图片">
             </div>
             <div class="list">
-                <div class="list-item"><span class="left-span">学院：</span><span class="right-span">艺术学院</span></div>
-                <div class="list-item"><span class="left-span">专业：</span><span class="right-span">视觉传达设计</span></div>
-                <div class="list-item"><span class="left-span">班级：</span><span class="right-span">一班</span></div>
-                <div class="list-item"><span class="left-span">宿舍：</span><span class="right-span">南区一栋604</span></div>
-                <div class="list-item"><span class="left-span">年级：</span><span class="right-span">2001</span></div>
+                <div class="list-item"><span class="left-span">学院：</span><span class="right-span">{{student.xy}}</span></div>
+                <div class="list-item"><span class="left-span">专业：</span><span class="right-span">{{student.zy}}</span></div>
+                <div class="list-item"><span class="left-span">班级：</span><span class="right-span">{{student.bj}}</span></div>
+                <div class="list-item"><span class="left-span">宿舍：</span><span class="right-span">{{student.ss}}</span></div>
+                <div class="list-item"><span class="left-span">年级：</span><span class="right-span">{{student.nj}}</span></div>
             </div>
         </div>
         <div class="biaoti">业务办理</div>
@@ -40,7 +40,8 @@
         name: "basicInfo",
         data() {
             return {
-                title1: "离校系统"
+                title1: "离校系统",
+                student: {}//学生信息
             }
         },
         components: {goBack},
@@ -52,10 +53,11 @@
                 this.$router.push({path: 'step'})
             },
             getStdInfo() {
-                this.$ajax.post('/student/findByXh', {xh: '2015961152310002'})
+                this.$ajax.post('/student/index')
                     .then(res => {
                         console.log(res)
-                        if (res.data.student.readflag == '2') {//0-沒有看须知，1-看了的
+                        this.student = res.data.student
+                        if (res.data.student.readflag !== '1') {//0-沒有看须知，1-看了的
                             this.$router.push({path: '/notice'})
                         }
                     })

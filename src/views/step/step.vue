@@ -5,7 +5,7 @@
         <p class="biaoti2">今年离校环节总共有 15个环节</p>
         <p class="biaoti2">目前未办理环节 <span class="color1">10</span>，目前已办理环节 <span class="color2">5</span></p>
         <div class="pad20">
-            <van-swipe :autoplay="3000" indicator-color="white" class="lbt">
+            <van-swipe :autoplay="5000" indicator-color="white" class="lbt">
                 <van-swipe-item>
                     <div class="lbt-item lbt-1">
                         <p class="lbt-item-title">未办理业务详情</p>
@@ -23,7 +23,7 @@
                     </div>
                 </van-swipe-item>
                 <van-swipe-item>
-                    <div class="lbt-item lbt-2">
+                    <div class="lbt-item lbt-3">
                         <p>不通过业务详情</p>
                         <div v-for="item in list" v-if="item.STATUS == '2'">{{item.STEPNAME}}
                             <van-icon name="question" @click="showText(item.STEPNAME)"></van-icon>

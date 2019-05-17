@@ -62,7 +62,7 @@
                 textarea: '',//备注
                 info: {},//状态信息
                 isEdit: false,//false-不能修改，true-能修改
-                stepid:""
+                stepid: ""
             }
         },
         components: {goBack},
@@ -95,7 +95,15 @@
                     remark: this.textarea
                 })
                     .then(res => {
-
+                        if (res.data.errcode == '0') {
+                            this.$toast("保存成功")
+                            let _this = this
+                            setTimeout(function () {
+                                _this.$router.push({path: '/glstep'})
+                            }, 3000)
+                        } else {
+                            this.$toast(res.data.errmsg)
+                        }
                     })
             }
         },

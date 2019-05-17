@@ -6,14 +6,13 @@
             <div class="name-band">
                 <div>
                     <div class="name">
-                        <span>{{item.XM}}</span>
+                        <span>{{item.XM}}</span><img src="@/assets/img/male.png" alt="暂无图片">
                     </div>
                     <div>{{item.XH}}</div>
                     <div>{{item.MZ}}</div>
                 </div>
                 <img src="@/assets/img/default-user.png" alt="暂无图片">
-                <!--                <img :src="item.PHOTO || '@/assets/img/male.png'"-->
-                <!--                     alt="暂无图片">-->
+
             </div>
             <div class="list">
                 <div class="list-item"><span class="left-span">学院：</span><span

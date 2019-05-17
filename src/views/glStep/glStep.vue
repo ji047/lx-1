@@ -4,27 +4,25 @@
         <div style="margin-bottom: 20px;">
             <div class="biaoti">办理环节</div>
             <div class="biaoti2">当前办理环节</div>
-            <div class="pad20">
-                <div @click="flag = true" class="picker-click-div">{{text}}</div>
+            <div style="padding: 10px 20px;">
+                <el-select v-model="value" placeholder="请选择" @change="onchange">
+                    <el-option
+                            v-for="item in selectList"
+                            :key="item.STEPID"
+                            :label="item.STEPNAME"
+                            :value="item.STEPID"
+                            :loading="loading">
+                    </el-option>
+                </el-select>
             </div>
-            <van-picker
-                    show-toolbar
-                    title="标题"
-                    :columns="columns"
-                    @cancel="onCancel"
-                    @confirm="onConfirm"
-                    v-if="flag"
-                    class="picker-position"
-                    :loading="loading"
-            />
         </div>
 
         <div style="margin-bottom: 20px;">
-            <div class="biaoti">办理环节</div>
-            <div class="biaoti2">当前办理环节</div>
+            <div class="biaoti">业务办理</div>
+            <div class="biaoti2">关键词查询</div>
             <van-search
                     v-model="searchValue"
-                    placeholder="请输入学号搜索"
+                    placeholder="请输入学号或姓名"
                     show-action
                     shape="round"
                     @search="onSearch"
@@ -63,59 +61,58 @@
                 searchValue: "",
                 planid: '',//批次id
                 show: false,
-                loading: true//picker显示加载
+                loading: true,//picker显示加载
+                value: '',//下拉框选中的项的  STEPID
+                loading: true//下拉框是否显示暂无数据
             }
         },
-        components: {goBack},
+        components: {
+            goBack
+        },
         methods: {
             /*获取下拉选项*/
             getSelect() {
+                this.loading = true
                 this.$ajax.post('/record/teacherIndex', '')
                     .then(res => {
-                        if (res.data.data) {
-                            this.loading = false
-                            this.selectList = res.data.data
-                            this.planid = res.data.data[0].PLANID
-                            for (let i = 0; i < this.selectList.length; i++) {
-                                this.columns.push(this.selectList[i].STEPNAME)
-
+                        if (res.data.errcode == '0') {
+                            if (res.data.data) {
+                                this.loading = false
+                                this.selectList = res.data.data
+                                this.planid = res.data.data[0].PLANID
                             }
+                        } else {
+                            this.$toast(res.data.errmsg)
                         }
                     })
             },
-            onConfirm(value, index) {
-                this.flag = false
-                // this.$toast(`当前值：${value}, 当前索引：${index}`);
-                this.text = value
+            onchange(e) {/*e is item.STEPID */
                 for (let i = 0; i < this.selectList.length; i++) {
-                    if (value === this.selectList[i].STEPNAME) {
+                    if (e == this.selectList[i].STEPID) {
                         this.currentSelect = this.selectList[i]
-                        console.log(this.selectList[i].STEPNAME)
-                        console.log(this.currentSelect)
                     }
                 }
-                // this.$router.push({path: '/glList'})
-            },
-            onCancel() {
-                this.flag = false
-                this.$toast('取消');
             },
             onSearch() {
-                if (!this.currentSelect) {
+                if (!this.currentSelect.STEPNAME) {
                     this.$toast("请选择办理环节！")
                     return
                 }
                 if (!this.searchValue) {
-                    this.$toast("请输入学号！")
+                    this.$toast("请输入学号或姓名！")
                     return
                 }
-                this.$ajax.post('/record/queryStudent', {planid: this.planid, xh: this.searchValue, xm: ''})
+                this.$ajax.post('/record/queryStudent', {planid: this.planid, search: this.searchValue, xh: '', xm: ''})
                     .then(res => {
                         if (res.data.data.records.length > 0) {
-                            this.$store.commit('setResult', res.data.data.records[0])
+                            // this.$store.commit('setResult', res.data.data.records[0])
+                            this.$store.commit('setResultList', res.data.data.records)
                             this.$router.push({
-                                path: '/glSearchResult',
-                                query: {planid: this.planid, currentStepid: this.currentSelect.STEPID}
+                                path: '/glSearchList',
+                                query: {
+                                    planid: this.planid,
+                                    currentStepid: this.currentSelect.STEPID,
+                                }
                             })
                         } else {
                             this.$toast("暂无数据")
