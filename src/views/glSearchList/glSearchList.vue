@@ -13,7 +13,7 @@
                     <van-icon name="arrow"></van-icon>
                 </div>
             </div>
-            <van-button size="large" class="button-bg">确认</van-button>
+            <!--            <van-button size="large" class="button-bg">确认</van-button>-->
         </div>
     </div>
 </template>
@@ -40,12 +40,12 @@
                 this.currentStepid = this.$route.query.currentStepid
             },
             toDetail(item) {
+                this.$store.commit('setResult', item)
                 this.$router.push({
                     path: "/glSearchResult",
                     query: {
                         planid: this.planid,
                         currentStepid: this.currentStepid,
-                        stdInfo: item
                     }
                 })
             }

@@ -75,25 +75,19 @@
                 this.loading = true
                 this.$ajax.post('/record/teacherIndex', '')
                     .then(res => {
-                        if (res.data.errcode == '0') {
-                            if (res.data.data) {
-                                this.loading = false
-                                this.selectList = res.data.data
-                                this.planid = res.data.data[0].PLANID
-                            }
-                        } else {
-                            this.$toast(res.data.errmsg)
-                        }
+                        this.loading = false
+                        this.selectList = res.data.data
+                        this.planid = res.data.data[0].PLANID
                     })
             },
-            onchange(e) {/*e is item.STEPID */
+            onchange(e) {/*选择下拉框后触发  e is item.STEPID */
                 for (let i = 0; i < this.selectList.length; i++) {
                     if (e == this.selectList[i].STEPID) {
                         this.currentSelect = this.selectList[i]
                     }
                 }
             },
-            onSearch() {
+            onSearch() {/*点击搜索按钮后触发*/
                 if (!this.currentSelect.STEPNAME) {
                     this.$toast("请选择办理环节！")
                     return
@@ -105,7 +99,6 @@
                 this.$ajax.post('/record/queryStudent', {planid: this.planid, search: this.searchValue, xh: '', xm: ''})
                     .then(res => {
                         if (res.data.data.records.length > 0) {
-                            // this.$store.commit('setResult', res.data.data.records[0])
                             this.$store.commit('setResultList', res.data.data.records)
                             this.$router.push({
                                 path: '/glSearchList',

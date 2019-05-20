@@ -22,7 +22,7 @@
     import goBack from '@/components/goBack'
 
     export default {
-        name: "glList",
+        name: "glList",//点击人数后跳转的按钮
         data() {
             return {
                 title1: "离校系统",

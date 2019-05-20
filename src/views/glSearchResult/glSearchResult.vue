@@ -108,7 +108,8 @@
             }
         },
         mounted() {
-            this.stdInfo = this.$store.state.search_stdInfo
+
+            this.stdInfo = this.$store.getters.search_stdInfo
             this.name = this.$store.state.search_stdInfo.XM
             this.xh = this.$store.state.search_stdInfo.XH
             this.mz = this.$store.state.search_stdInfo.MZ
