@@ -1,5 +1,5 @@
-const target='http://192.168.0.110:8085';
-// const target='http://192.168.0.110:8085';
+const target='http://192.168.0.127:8081';
+// const target='http://localhost:8080';
 module.exports = {
   // 基本路径
   publicPath: './',
@@ -16,7 +16,7 @@ module.exports = {
     port:8888,
     disableHostCheck: true,
     proxy:{
-      '/proxy':{
+      '/':{
         target:target,
         changeOrigin:true,
         pathRewrite:{
