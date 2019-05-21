@@ -1,6 +1,6 @@
 <template>
     <div>
-        <go-back :title="title1"></go-back>
+<!--        <go-back :title="title1"></go-back>-->
         <div class="biaoti">基本信息</div>
         <div class="pad20">
             <div class="name-band">

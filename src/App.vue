@@ -1,7 +1,8 @@
 <template>
     <div id="app">
         <!--    <div id="nav"></div>-->
-        <keep-alive exclude="notice">
+        <!--        <keep-alive include="glStep">-->
+        <keep-alive exclude="notice,basicInfo">
             <router-view/>
         </keep-alive>
     </div>

@@ -2,7 +2,8 @@ html {
 }
 
 body {
-  padding-top: 45px;
+  //padding-top: 45px;
+  padding-top: 20px;
 }
 
 .goback-div {
@@ -153,7 +154,7 @@ body {
   border-radius: 14px;
   color: #ffffff;
   text-align: left;
-  padding: 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   min-height: 300px;
   margin: 0 10px;
@@ -269,9 +270,19 @@ body {
   width: 80%;
 }
 
-.el-select .el-input.is-focus .el-input__inner{
+.el-select .el-input.is-focus .el-input__inner {
   border-color: #06bedd !important;
 }
-.el-select-dropdown__item.selected{
+
+.el-select-dropdown__item.selected {
   color: #06bedd !important;
+}
+
+/*
+覆盖vant样式
+ */
+.van-checkbox__icon--checked .van-icon {
+  color: #fff;
+  border-color: #06bedd !important;
+  background-color: #06bedd !important;
 }

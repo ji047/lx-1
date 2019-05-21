@@ -1,6 +1,6 @@
 <template>
     <div>
-        <go-back :title="title1"></go-back>
+<!--        <go-back :title="title1"></go-back>-->
         <div style="margin-bottom: 20px;">
             <div class="biaoti">办理环节</div>
             <div class="biaoti2">当前办理环节</div>

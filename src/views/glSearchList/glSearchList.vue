@@ -1,6 +1,6 @@
 <template>
     <div>
-        <go-back :title="title1"></go-back>
+<!--        <go-back :title="title1"></go-back>-->
         <div class="biaoti">图书馆环节未办理人员详情</div>
         <div class="pad20">
             <div style="text-align: left;">共查询到 <span class="colorTheme">{{list.length}}</span> 条数据</div>
