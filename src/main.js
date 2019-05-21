@@ -33,10 +33,11 @@ function hasToken() {
 
 router.beforeEach((to, from, next) => {
     // 检测 store中的 token，如果没有，再去cookie中取，如果cookie中没有，就跳转到login，如果token失效，接口返回403，则提示信息并登出
-    if (hasToken()) {
+    if (!hasToken()) {
+        router.push({path: '/'})
         next()
     } else {
-        router.push({path: '/'})
+        next()
     }
 })
 

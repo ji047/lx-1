@@ -10,12 +10,14 @@ export default new Vuex.Store({
         role: "",
         roleList: [],
         search_stdInfo: {},
-        search_list: []//点击搜索后得到的列表
+        search_list: [],//点击搜索后得到的列表
+        myInfo: {},//学会端登录，我的信息
     },
     getters: {
         token: state => state.token,
         search_list: state => state.search_list,
-        search_stdInfo: state => state.search_stdInfo
+        search_stdInfo: state => state.search_stdInfo,
+        myInfo: state => state.myInfo
     },
     mutations: {
         setResult(state, data) {
@@ -28,6 +30,10 @@ export default new Vuex.Store({
             console.log(token)
             state.token = token
             Cookies.set('token', token)
+        },
+        setMyInfo(state, data) {
+            console.log(data)
+            state.myInfo = data
         }
     },
     actions: {}

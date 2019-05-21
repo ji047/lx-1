@@ -16,7 +16,7 @@
                 </van-swipe-item>
                 <van-swipe-item>
                     <div class="lbt-item lbt-2">
-                        <p>已通过业务详情</p>
+                        <p class="lbt-item-title">已通过业务详情</p>
                         <div v-for="item in list" v-if="item.STATUS == '1'">{{item.STEPNAME}}
                             <van-icon name="question" @click="showText(item.STEPNAME)"></van-icon>
                         </div>
@@ -24,7 +24,7 @@
                 </van-swipe-item>
                 <van-swipe-item>
                     <div class="lbt-item lbt-3">
-                        <p>不通过业务详情</p>
+                        <p class="lbt-item-title">不通过业务详情</p>
                         <div v-for="item in list" v-if="item.STATUS == '2'">{{item.STEPNAME}}
                             <van-icon name="question" @click="showText(item.STEPNAME)"></van-icon>
                         </div>
